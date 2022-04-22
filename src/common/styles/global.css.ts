@@ -1,4 +1,4 @@
-import { globalStyle } from '@vanilla-extract/css'
+import { globalStyle, globalFontFace } from '@vanilla-extract/css'
 
 globalStyle('html, body', {
   padding: 0,
@@ -20,4 +20,8 @@ globalStyle('a', {
 
 globalStyle('*', {
   boxSizing: 'border-box',
+})
+
+globalFontFace('Inter', {
+  src: "url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap')",
 })
