@@ -3,8 +3,7 @@ import { useCallback, useState, useEffect } from 'react'
 const hasWindow = () => typeof window !== 'undefined'
 
 const useLocalStorage = <T>(key: string, initialValue?: T) => {
-  // LocalStorageに保存されている値を読み込む。SSR時はinitialValueを返す。
-  const loadStoredValue = useCallback(() => {
+  const [storedValue, setStoredValue] = useState<T>(() => {
     if (!hasWindow()) {
       return initialValue
     }
@@ -19,11 +18,8 @@ const useLocalStorage = <T>(key: string, initialValue?: T) => {
       )
       return initialValue
     }
-  }, [key, initialValue])
+  })
 
-  const [storedValue, setStoredValue] = useState<T>(loadStoredValue)
-
-  // LocalStorageに値をセットする。
   const setValue = (value: T) => {
     if (!hasWindow()) {
       console.warn(
@@ -44,11 +40,6 @@ const useLocalStorage = <T>(key: string, initialValue?: T) => {
       )
     }
   }
-
-  // クライアント側でレンダリング後、もう一度LocalStorageから読み込む。
-  useEffect(() => {
-    setStoredValue(loadStoredValue)
-  }, [loadStoredValue])
 
   return [storedValue, setValue] as const
 }
