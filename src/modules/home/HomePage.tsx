@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
+
+import Container from '../../common/components/Container'
+
 import styles from './HomePage.css'
 
 export const Home = () => {
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
+      <Container>
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
         </h1>
@@ -42,7 +45,7 @@ export const Home = () => {
             </p>
           </a>
         </div>
-      </div>
+      </Container>
     </main>
   )
 }

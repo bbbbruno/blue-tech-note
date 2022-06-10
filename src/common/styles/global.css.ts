@@ -1,8 +1,7 @@
 import { globalStyle, globalFontFace } from '@vanilla-extract/css'
+import { vars } from './variables.css'
 
 globalStyle('html, body', {
-  padding: 0,
-  margin: 0,
   fontFamily:
     '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
   fontSize: '16px',
@@ -18,8 +17,8 @@ globalStyle('a', {
   textDecoration: 'none',
 })
 
-globalStyle('*', {
-  boxSizing: 'border-box',
+globalStyle('ul', {
+  lineHeight: 1.33,
 })
 
 globalFontFace('Inter', {

@@ -1,6 +1,4 @@
-import { createGlobalTheme } from '@vanilla-extract/css'
-
-export const space = createGlobalTheme(':root', {
+export const space = {
   0: '0',
   1: '0.25rem',
   2: '0.5rem',
@@ -10,4 +8,4 @@ export const space = createGlobalTheme(':root', {
   6: '8rem',
   7: '16rem',
   8: '32rem',
-})
+}

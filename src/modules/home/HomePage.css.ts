@@ -46,6 +46,7 @@ const homeStyle = {
     justifyContent: 'center',
     flexWrap: 'wrap',
     maxWidth: '800px',
+    margin: '0 auto',
     '@media': {
       'screen and (max-width: 600px)': {
         width: '100%',
