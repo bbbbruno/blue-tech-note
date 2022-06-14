@@ -1,10 +1,8 @@
-import { useCallback, useState, useEffect } from 'react'
-
-const hasWindow = () => typeof window !== 'undefined'
+import { useState } from 'react'
 
 const useLocalStorage = <T>(key: string, initialValue?: T) => {
   const [storedValue, setStoredValue] = useState<T>(() => {
-    if (!hasWindow()) {
+    if (typeof window === 'undefined') {
       return initialValue
     }
 
@@ -21,7 +19,7 @@ const useLocalStorage = <T>(key: string, initialValue?: T) => {
   })
 
   const setValue = (value: T) => {
-    if (!hasWindow()) {
+    if (typeof window === 'undefined') {
       console.warn(
         `#useLocalStorage: impossible to set the localStorage “${key}” inside a no-client context.`
       )

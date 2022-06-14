@@ -4,7 +4,7 @@ const useClient = () => {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setIsClient(true)
+    if (typeof window !== 'undefined') setIsClient(true)
   }, [])
 
   return isClient
