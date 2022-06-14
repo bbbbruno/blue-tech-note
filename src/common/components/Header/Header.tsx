@@ -1,3 +1,4 @@
+import Container from '../Container'
 import HeaderLogo from './HeaderLogo'
 import HeaderMenu from './HeaderMenu'
 import HeaderSwitch from './HeaderSwitch'
@@ -5,8 +6,8 @@ import styles from './Header.css'
 
 const Header = () => {
   return (
-    <header className={`${styles.header}`}>
-      <div className={styles.container}>
+    <header className={styles.header}>
+      <Container variant='compact'>
         <div className={styles.wrapper}>
           <HeaderLogo />
           <div className={styles.menuWrapper}>
@@ -14,7 +15,7 @@ const Header = () => {
             <HeaderSwitch />
           </div>
         </div>
-      </div>
+      </Container>
     </header>
   )
 }

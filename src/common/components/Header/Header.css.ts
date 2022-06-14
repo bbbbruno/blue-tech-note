@@ -1,13 +1,11 @@
 import { style } from '@vanilla-extract/css'
 import { colors, space } from '../../styles/variables.css'
 import { mq } from '../../styles/mixins.css'
-import { container } from '../../styles/foundation.css'
 
 const styles = {
   header: style({
     backgroundColor: colors.headerBg,
   }),
-  container: container['compact'],
   wrapper: style({
     height: '6rem',
     alignItems: 'center',

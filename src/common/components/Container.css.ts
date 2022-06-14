@@ -1,23 +1,24 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { sizes } from '../styles/variables.css'
-import { sprinkles } from '../styles/sprinkles.css'
+import { mq } from '../styles/mixins.css'
+import { sizes, space } from '../styles/variables.css'
 
-const base = style([
-  sprinkles({
-    paddingX: [3, 4],
-  }),
+const styles = styleVariants(
   {
-    width: '100%',
-    margin: '0 auto',
+    compact: { maxWidth: sizes.container },
+    wide: { maxWidth: sizes.wide },
+    full: { maxWidth: sizes.full },
   },
-])
+  type => [
+    {
+      width: '100%',
+      margin: '0 auto',
+      padding: space[3],
+      ...mq.tablet({
+        padding: `0 ${space[4]}`,
+      }),
+    },
+    type,
+  ]
+)
 
-const maxWidths = {
-  compact: sizes.container,
-  wide: sizes.wide,
-  full: sizes.full,
-}
-
-const variants = styleVariants(maxWidths, maxWidth => [base, { maxWidth }])
-
-export default variants
+export default styles

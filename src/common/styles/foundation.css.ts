@@ -1,26 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 import { sizes, space, colors, fontWeights, fontSizes } from './variables.css'
 import { mq } from './mixins.css'
-import { sprinkles } from './sprinkles.css'
-
-export const container = styleVariants(
-  {
-    compact: { maxWidth: sizes.container },
-    wide: { maxWidth: sizes.wide },
-    full: { maxWidth: sizes.full },
-  },
-  type => [
-    {
-      width: '100%',
-      margin: '0 auto',
-      padding: space[3],
-      ...mq.tablet({
-        padding: `0 ${space[4]}`,
-      }),
-    },
-    type,
-  ]
-)
 
 const heading = {
   display: 'block',
@@ -32,12 +12,12 @@ const heading = {
 
 export const headings = {
   h1: style([
-    sprinkles({
-      fontSize: [5, 6, null, 7],
-    }),
     {
       ...heading,
+      fontSize: fontSizes[5],
       fontWeight: fontWeights.bolder,
+      ...mq.tablet({ fontSize: fontSizes[5] }),
+      ...mq.desktop({ fontSize: fontSizes[5] }),
     },
   ]),
   h2: style({
