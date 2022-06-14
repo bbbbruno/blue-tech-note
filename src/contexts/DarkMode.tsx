@@ -1,8 +1,9 @@
 import { createContext, useEffect } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage'
+import useClient from '../hooks/useClient'
 import { lightTheme, darkTheme } from '../common/styles/variables.css'
 
-const DarkModeContext = createContext({
+export const DarkModeContext = createContext({
   darkMode: false,
   setDarkMode: (dark: boolean) => {},
 })
@@ -11,22 +12,25 @@ type Props = {
   children: React.ReactNode
 }
 
-const DarkModeProvider = ({ children }: Props) => {
+export const DarkModeProvider = ({ children }: Props) => {
   const [darkMode, setDarkMode] = useLocalStorage('dark-mode-enabled', false)
+  const isClient = useClient()
 
   useEffect(() => {
     document.body.className = darkMode ? darkTheme : lightTheme
   }, [darkMode])
 
   return (
-    <DarkModeContext.Provider
-      value={{
-        darkMode,
-        setDarkMode,
-      }}>
-      {children}
-    </DarkModeContext.Provider>
+    <>
+      {isClient && (
+        <DarkModeContext.Provider
+          value={{
+            darkMode,
+            setDarkMode,
+          }}>
+          {children}
+        </DarkModeContext.Provider>
+      )}
+    </>
   )
 }
-
-export { DarkModeContext, DarkModeProvider }

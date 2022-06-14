@@ -1,11 +1,11 @@
 import { globalStyle, globalFontFace } from '@vanilla-extract/css'
-import { vars } from './variables.css'
 
 globalStyle('html, body', {
   fontFamily:
     '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
   fontSize: '16px',
   lineHeight: '1.8',
+  WebkitFontSmoothing: 'antialiased',
 })
 
 globalStyle('h1, h2, h3, h4, h5, h6', {

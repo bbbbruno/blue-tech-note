@@ -1,15 +1,16 @@
 import Link from 'next/link'
+import { styles } from './HeaderMenu.css'
 
 const HeaderMenu = () => {
   return (
-    <nav className='menu'>
-      <ul>
-        <li>
+    <nav>
+      <ul className={styles.list}>
+        <li className={styles.item}>
           <Link href='/'>
             <a>Home</a>
           </Link>
         </li>
-        <li>
+        <li className={styles.item}>
           <Link href='/about'>
             <a>About Me</a>
           </Link>

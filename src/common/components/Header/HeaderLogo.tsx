@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from './Header.css'
+import styles from './HeaderLogo.css'
 
 const HeaderLogo = () => {
   return (

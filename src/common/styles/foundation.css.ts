@@ -1,34 +1,33 @@
 import { style, styleVariants } from '@vanilla-extract/css'
-import { vars } from './variables.css'
+import { sizes, space, colors, fontWeights, fontSizes } from './variables.css'
+import { mq } from './mixins.css'
 import { sprinkles } from './sprinkles.css'
 
-const base = style([
-  sprinkles({
-    paddingX: [3, 4],
-  }),
+export const container = styleVariants(
   {
-    width: '100%',
-    margin: '0 auto',
+    compact: { maxWidth: sizes.container },
+    wide: { maxWidth: sizes.wide },
+    full: { maxWidth: sizes.full },
   },
-])
-
-const maxWidths = {
-  compact: vars.sizes.container,
-  wide: vars.sizes.wide,
-  full: vars.sizes.full,
-}
-
-export const container = styleVariants(maxWidths, maxWidth => [
-  base,
-  { maxWidth },
-])
+  type => [
+    {
+      width: '100%',
+      margin: '0 auto',
+      padding: space[3],
+      ...mq.tablet({
+        padding: `0 ${space[4]}`,
+      }),
+    },
+    type,
+  ]
+)
 
 const heading = {
   display: 'block',
-  color: vars.colors.heading,
-  fontWeight: vars.fontWeights.heading,
+  color: colors.heading,
+  fontWeight: fontWeights.heading,
   textDecoration: 'none',
-  marginBottom: vars.space[3],
+  marginBottom: space[3],
 }
 
 export const headings = {
@@ -38,25 +37,25 @@ export const headings = {
     }),
     {
       ...heading,
-      fontWeight: vars.fontWeights.bolder,
+      fontWeight: fontWeights.bolder,
     },
   ]),
   h2: style({
     ...heading,
-    fontSize: vars.fontSizes[4],
+    fontSize: fontSizes[4],
   }),
   h3: style({
     ...heading,
-    fontSize: vars.fontSizes[3],
+    fontSize: fontSizes[3],
   }),
   h4: style({
     ...heading,
-    fontSize: vars.fontSizes[2],
-    fontWeight: vars.fontWeights.medium,
+    fontSize: fontSizes[2],
+    fontWeight: fontWeights.medium,
   }),
   h5: style({
     ...heading,
-    fontSize: vars.fontSizes[1],
-    fontWeight: vars.fontWeights.medium,
+    fontSize: fontSizes[1],
+    fontWeight: fontWeights.medium,
   }),
 }
