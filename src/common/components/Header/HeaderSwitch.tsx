@@ -4,16 +4,16 @@ import { FaSun, FaMoon } from 'react-icons/fa'
 import styles from './HeaderSwitch.css'
 
 const HeaderSwitch = () => {
-  const { darkMode, setDarkMode } = useContext(DarkModeContext)
+  const { darkModeOn, toggleDarkMode } = useContext(DarkModeContext)
 
-  const colorModeClass = darkMode ? 'dark' : 'light'
+  const colorModeClass = darkModeOn ? 'dark' : 'light'
 
   return (
     <button
-      onClick={e => setDarkMode(!darkMode)}
+      onClick={e => toggleDarkMode()}
       className={styles.toggle[colorModeClass]}>
       <span className={styles.icon[colorModeClass]}>
-        {darkMode ? (
+        {darkModeOn ? (
           <FaMoon className={styles.svg} />
         ) : (
           <FaSun className={styles.svg} />

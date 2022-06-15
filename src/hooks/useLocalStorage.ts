@@ -18,7 +18,7 @@ const useLocalStorage = <T>(key: string, initialValue?: T) => {
     }
   })
 
-  const setValue = (value: T) => {
+  const setValue = (value: T | ((val: T) => T)) => {
     if (typeof window === 'undefined') {
       console.warn(
         `#useLocalStorage: impossible to set the localStorage “${key}” inside a no-client context.`
@@ -27,7 +27,7 @@ const useLocalStorage = <T>(key: string, initialValue?: T) => {
 
     try {
       const valueToStore =
-        typeof value === 'function' ? value(storedValue) : value
+        value instanceof Function ? value(storedValue) : value
 
       localStorage.setItem(key, JSON.stringify(valueToStore))
       setStoredValue(valueToStore)
