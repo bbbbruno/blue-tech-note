@@ -1,6 +1,6 @@
 export const sizes = {
-  container: 1140,
-  wide: 1600,
+  container: '1140px',
+  wide: '1600px',
   '1/2': '50%',
   '1/3': '33.333333%',
   '2/3': '66.666667%',
@@ -32,8 +32,8 @@ export const sizes = {
 }
 
 export const icon = {
-  xs: 24,
-  sm: 32,
-  md: 48,
-  lg: 64,
+  xs: '24px',
+  sm: '32px',
+  md: '48px',
+  lg: '64px',
 }

@@ -1,4 +1,5 @@
 import { globalStyle, globalFontFace } from '@vanilla-extract/css'
+import { colors, fontSizes, fontWeights } from '../styles/variables.css'
 
 globalStyle('html, body', {
   fontFamily:
@@ -10,6 +11,8 @@ globalStyle('html, body', {
 
 globalStyle('h1, h2, h3, h4, h5, h6', {
   lineHeight: 1.33,
+  color: colors.heading,
+  fontWeight: fontWeights.bold,
 })
 
 globalStyle('a', {

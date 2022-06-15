@@ -1,17 +1,20 @@
 import { style } from '@vanilla-extract/css'
+import { space, sizes, colors } from '../../common/styles/variables.css'
 
 const homeStyle = {
-  container: style({
-    padding: '0 2rem',
+  home: style({
+    backgroundColor: colors.background,
+  }),
+  wrapper: style({
+    padding: `${space[5]} 0`,
+    display: 'flex',
   }),
   main: style({
-    minHeight: '100vh',
-    padding: '4rem 0',
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: sizes.full,
+  }),
+  sidebar: style({
+    width: sizes['1/3'],
+    paddingLeft: space[5],
   }),
   title: style({
     margin: 0,
