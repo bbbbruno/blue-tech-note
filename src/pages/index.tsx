@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Home from '../modules/home'
+import { HomePage } from '../features/home'
 
 const IndexPage: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const IndexPage: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Home />
+      <HomePage />
     </>
   )
 }

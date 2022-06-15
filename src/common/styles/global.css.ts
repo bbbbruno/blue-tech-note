@@ -24,6 +24,10 @@ globalStyle('ul', {
   lineHeight: 1.33,
 })
 
+globalStyle('p', {
+  color: colors.text,
+})
+
 globalFontFace('Inter', {
   src: "url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap')",
 })
