@@ -3,38 +3,16 @@ import { Category } from '../types'
 import { CategoryButton } from './CategoryButton'
 import styles from './CategoryList.css'
 
-const categoryList: Category[] = [
-  {
-    id: 1,
-    slug: 'enginner',
-    name: 'エンジニア',
-    iconName: 'FaCode',
-    to: '/category/engineer',
-  },
-  {
-    id: 2,
-    slug: 'university',
-    name: '大学',
-    iconName: 'FaUniversity',
-    to: '/category/university',
-  },
-  {
-    id: 3,
-    slug: 'life',
-    name: 'ライフスタイル',
-    iconName: 'FaHourglassStart',
-    to: '/category/life',
-  },
-]
+type Props = {
+  categories: Category[]
+}
 
-export const CategoryList = () => {
+export const CategoryList = ({ categories }: Props) => {
   return (
-    <div className={styles.categoryList}>
-      <Heading variant='side' className='categoryList'>
-        カテゴリー
-      </Heading>
+    <div className={styles.categoryListWrapper}>
+      <Heading variant='side'>カテゴリー</Heading>
       <ul>
-        {categoryList.map(category => (
+        {categories.map(category => (
           <li key={category.id} className={styles.categoryItem}>
             <CategoryButton category={category} />
           </li>

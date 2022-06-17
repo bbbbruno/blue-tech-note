@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css'
 import { space } from '../../../common/styles/variables.css'
 
 const styles = {
-  categoryList: style({
+  categoryListWrapper: style({
     marginBottom: space[5],
   }),
   categoryItem: style({

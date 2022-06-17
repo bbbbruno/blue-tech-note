@@ -19,17 +19,12 @@ const headings: {
 type Props = {
   variant: 'section' | 'side'
   children: React.ReactNode
-  className?: string
 }
 
-const Heading = ({ variant, children, className }: Props) => {
+const Heading = ({ variant, children }: Props) => {
   const heading = headings[variant]
 
-  return (
-    <heading.tag className={`${heading.class} ${className}`}>
-      {children}
-    </heading.tag>
-  )
+  return <heading.tag className={heading.class}>{children}</heading.tag>
 }
 
 export default Heading
