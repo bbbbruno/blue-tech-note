@@ -39,6 +39,7 @@ const styles = {
     margin: `${space[3]} 0`,
     fontWeight: fontWeights.bold,
     color: colors.heading,
+    lineHeight: 1.33,
   }),
   text: style({
     fontSize: fontSizes[1],

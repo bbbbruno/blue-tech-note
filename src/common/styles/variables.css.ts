@@ -1,5 +1,5 @@
 export { fontFamilies, fontWeights, fontSizes } from './theme/typography.css'
 export { colors } from './theme/colors.css'
 export { space } from './theme/space.css'
-export { sizes } from './theme/sizes.css'
+export { sizes, icon } from './theme/sizes.css'
 export { lightTheme, darkTheme } from './theme/colors.css'

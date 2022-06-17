@@ -10,10 +10,10 @@ const homeStyle = {
     display: 'flex',
   }),
   main: style({
-    width: sizes.full,
+    flex: 1,
   }),
   sidebar: style({
-    width: sizes['1/3'],
+    flexBasis: sizes['1/3'],
     paddingLeft: space[5],
   }),
   posts: style({

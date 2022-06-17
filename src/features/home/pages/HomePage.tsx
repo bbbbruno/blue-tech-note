@@ -4,66 +4,30 @@ import Image from 'next/image'
 import Container from '../../../common/components/Container'
 import Heading from '../../../common/components/Heading'
 import { PostCard } from '../../posts'
+import { Category } from '../../category/types'
+import { CategoryList } from '../../category/components/CategoryList'
 
 import styles from './HomePage.css'
 
-const posts = [
-  {
-    id: 1,
-    slug: 'first',
-    title: '初投稿です',
-    text: 'これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。',
-    imagePath: '/dummy.png',
-    category: { slug: 'engineer', name: 'エンジニア' },
-    tags: [{ slug: 'blog', name: 'ブログ' }],
-    publishedDate: '2022-06-15',
-    timeToRead: 3,
-  },
-  {
-    id: 2,
-    slug: 'first',
-    title: '初投稿です',
-    text: 'これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。',
-    imagePath: '/dummy.png',
-    category: { slug: 'engineer', name: 'エンジニア' },
-    tags: [{ slug: 'blog', name: 'ブログ' }],
-    publishedDate: '2022-06-15',
-    timeToRead: 3,
-  },
-  {
-    id: 3,
-    slug: 'first',
-    title: '初投稿です',
-    text: 'これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。',
-    imagePath: '/dummy.png',
-    category: { slug: 'engineer', name: 'エンジニア' },
-    tags: [{ slug: 'blog', name: 'ブログ' }],
-    publishedDate: '2022-06-15',
-    timeToRead: 3,
-  },
-  {
-    id: 4,
-    slug: 'first',
-    title: '初投稿です',
-    text: 'これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。',
-    imagePath: '/dummy.png',
-    category: { slug: 'engineer', name: 'エンジニア' },
-    tags: [{ slug: 'blog', name: 'ブログ' }],
-    publishedDate: '2022-06-15',
-    timeToRead: 3,
-  },
-  {
-    id: 5,
-    slug: 'first',
-    title: '初投稿です',
-    text: 'これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。',
-    imagePath: '/dummy.png',
-    category: { slug: 'engineer', name: 'エンジニア' },
-    tags: [{ slug: 'blog', name: 'ブログ' }],
-    publishedDate: '2022-06-15',
-    timeToRead: 3,
-  },
-]
+const category: Category = {
+  id: 1,
+  slug: 'engineer',
+  name: 'エンジニア',
+  iconName: 'FaCode',
+  to: '/category/engineer',
+}
+
+const posts = new Array(5).fill(null).map((_, i) => ({
+  id: i,
+  slug: 'first',
+  title: '初投稿です',
+  text: 'これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。これは初登校の文章なり〜。',
+  imagePath: '/dummy.png',
+  category,
+  tags: [{ slug: 'blog', name: 'ブログ' }],
+  publishedDate: '2022-06-15',
+  timeToRead: 3,
+}))
 
 export const HomePage = () => {
   return (
@@ -79,7 +43,7 @@ export const HomePage = () => {
             </div>
           </main>
           <aside className={styles.sidebar}>
-            <Heading variant='side'>カテゴリー</Heading>
+            <CategoryList />
             <Heading variant='side'>タグ</Heading>
           </aside>
         </div>

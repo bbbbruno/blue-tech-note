@@ -13,7 +13,6 @@ const useMedia = <T>(queries: string[], values: T[], defaultValue: T) => {
 
     handler()
     mediaQueryLists.forEach(mql => mql.addEventListener('change', handler))
-    console.log(value)
 
     return () =>
       mediaQueryLists.forEach(mql => mql.removeEventListener('change', handler))

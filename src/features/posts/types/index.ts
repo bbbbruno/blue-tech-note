@@ -1,11 +1,5 @@
-type Taxonomy = {
-  slug: string
-  name: string
-}
-
-export type Category = Taxonomy
-
-export type Tag = Taxonomy
+import { Category } from '../../category/types'
+import { Tag } from '../../tag/types'
 
 export type Post = {
   id: number
