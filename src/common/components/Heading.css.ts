@@ -2,6 +2,10 @@ import { style } from '@vanilla-extract/css'
 import { colors, fontWeights, space, fontSizes } from '../styles/variables.css'
 
 const styles = {
+  title: style({
+    fontSize: fontSizes[7],
+    marginBottom: space[3],
+  }),
   section: style({
     color: colors.heading,
     marginBottom: space[5],

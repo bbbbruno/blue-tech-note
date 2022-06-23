@@ -1,12 +1,13 @@
+import Badge from '../../../common/components/Badge'
 import Container from '../../../common/components/Container'
-import Sidebar from '../../../common/components/Sidebar'
 import Heading from '../../../common/components/Heading'
-import { PostCard } from '../../posts'
+import Sidebar from '../../../common/components/Sidebar'
+import { Post, PostDate } from '../'
+import styles from './PostDetailPage.css'
+
 import { Profile, ProfileCard } from '../../profile/'
 import { Category, CategoryList } from '../../category'
 import { Tag, TagList } from '../../tag'
-
-import styles from './HomePage.css'
 
 const profile: Profile = {
   name: 'Bruno Sugahara',
@@ -84,25 +85,34 @@ const tags: Tag[] = [
   { id: 6, slug: 'beginner', name: '初心者', to: '/tag/beginner' },
 ]
 
-export const HomePage = () => {
+type Props = {
+  post: Post
+}
+
+export const PostDetailPage = ({ post }: Props) => {
   return (
-    <Container flex>
-      <section>
-        <Heading variant='section'>最近の投稿</Heading>
-        <div className={styles.posts}>
-          {posts.map(post => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
+    <Container>
+      <section className={styles.titleSection}>
+        <Badge
+          text={post.category.name}
+          to={post.category.to}
+          className={styles.category}
+        />
+        <Heading variant='title' className={styles.title}>
+          初ブログ投稿！Markdown徹底解説！！
+        </Heading>
+        <PostDate date={post.publishedDate} />
       </section>
-      <Sidebar>
-        <Heading variant='side'>プロフィール</Heading>
-        <ProfileCard profile={profile} />
-        <Heading variant='side'>カテゴリー</Heading>
-        <CategoryList categories={categories} />
-        <Heading variant='side'>タグ</Heading>
-        <TagList tags={tags} />
-      </Sidebar>
+      <section className={styles.mainSection}>
+        <article className={styles.article}>This is post detail page</article>
+        <Sidebar>
+          <ProfileCard profile={profile} />
+          <Heading variant='side'>カテゴリー</Heading>
+          <CategoryList categories={categories} />
+          <Heading variant='side'>タグ</Heading>
+          <TagList tags={tags} />
+        </Sidebar>
+      </section>
     </Container>
   )
 }

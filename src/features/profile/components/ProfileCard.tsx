@@ -20,8 +20,8 @@ export const ProfileCard = ({ profile }: Props) => {
             className={styles.image}
             src={profile.imagePath}
             alt='profile image'
-            width={150}
-            height={150}
+            width={130}
+            height={130}
           />
         </a>
       </Link>
