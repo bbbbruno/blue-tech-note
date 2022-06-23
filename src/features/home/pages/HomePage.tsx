@@ -1,15 +1,32 @@
-import Head from 'next/head'
-import Image from 'next/image'
-
 import Container from '../../../common/components/Container'
 import Heading from '../../../common/components/Heading'
 import { PostCard } from '../../posts'
+import { Profile } from '../../profile/types'
+import { ProfileCard } from '../../profile/components/ProfileCard'
 import { Category } from '../../category/types'
 import { CategoryList } from '../../category/components/CategoryList'
 import { Tag } from '../../tag/types'
 import { TagList } from '../../tag/components/TagList'
 
 import styles from './HomePage.css'
+
+const profile: Profile = {
+  name: 'Bruno Sugahara',
+  description: 'Web Developer',
+  imagePath: '/profile.jpg',
+  links: [
+    {
+      iconName: 'FaGithub',
+      color: 'darkslategray',
+      to: 'https://github.com/bbbbruno',
+    },
+    {
+      iconName: 'FaTwitter',
+      color: '#1da1f2',
+      to: 'https://twitter.com/bbbbruno69',
+    },
+  ],
+}
 
 const category: Category = {
   id: 1,
@@ -83,6 +100,7 @@ export const HomePage = () => {
             </div>
           </main>
           <aside className={styles.sidebar}>
+            <ProfileCard profile={profile} />
             <CategoryList categories={categories} />
             <TagList tags={tags} />
           </aside>
