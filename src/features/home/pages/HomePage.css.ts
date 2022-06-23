@@ -6,7 +6,7 @@ const homeStyle = {
     backgroundColor: colors.background,
   }),
   wrapper: style({
-    padding: `${space[5]} 0`,
+    padding: `${space[5]} 0 ${space[6]}`,
     display: 'flex',
   }),
   main: style({
