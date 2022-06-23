@@ -8,7 +8,8 @@ export type Link = {
 
 export type Profile = {
   name: string
-  description: string
+  title?: string
+  description?: string
   imagePath: string
   links: Link[]
 }

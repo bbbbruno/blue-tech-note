@@ -3,18 +3,8 @@ import { space, sizes, colors } from '../../../common/styles/variables.css'
 
 const homeStyle = {
   home: style({
-    backgroundColor: colors.background,
-  }),
-  wrapper: style({
     padding: `${space[5]} 0 ${space[6]}`,
-    display: 'flex',
-  }),
-  main: style({
-    flex: 1,
-  }),
-  sidebar: style({
-    flexBasis: sizes['1/3'],
-    paddingLeft: space[5],
+    backgroundColor: colors.background,
   }),
   posts: style({
     display: 'flex',

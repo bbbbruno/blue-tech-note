@@ -47,7 +47,7 @@ const styles = {
     fontSize: fontSizes[3],
     marginBottom: space[3],
   }),
-  description: style({
+  title: style({
     fontWeight: fontWeights.medium,
     lineHeight: 1.33,
     color: colors.omegaDark,

@@ -1,18 +1,17 @@
 import Container from '../../../common/components/Container'
+import Main from '../../../common/components/Main'
+import Sidebar from '../../../common/components/Sidebar'
 import Heading from '../../../common/components/Heading'
 import { PostCard } from '../../posts'
-import { Profile } from '../../profile/types'
-import { ProfileCard } from '../../profile/components/ProfileCard'
-import { Category } from '../../category/types'
-import { CategoryList } from '../../category/components/CategoryList'
-import { Tag } from '../../tag/types'
-import { TagList } from '../../tag/components/TagList'
+import { Profile, ProfileCard } from '../../profile/'
+import { Category, CategoryList } from '../../category'
+import { Tag, TagList } from '../../tag'
 
 import styles from './HomePage.css'
 
 const profile: Profile = {
   name: 'Bruno Sugahara',
-  description: 'Web Developer',
+  title: 'Web Developer',
   imagePath: '/profile.jpg',
   links: [
     {
@@ -89,22 +88,23 @@ const tags: Tag[] = [
 export const HomePage = () => {
   return (
     <div className={styles.home}>
-      <Container>
-        <div className={styles.wrapper}>
-          <main className={styles.main}>
-            <Heading variant='section'>最近の投稿</Heading>
-            <div className={styles.posts}>
-              {posts.map(post => (
-                <PostCard key={post.id} post={post} />
-              ))}
-            </div>
-          </main>
-          <aside className={styles.sidebar}>
-            <ProfileCard profile={profile} />
-            <CategoryList categories={categories} />
-            <TagList tags={tags} />
-          </aside>
-        </div>
+      <Container flex>
+        <Main>
+          <Heading variant='section'>最近の投稿</Heading>
+          <div className={styles.posts}>
+            {posts.map(post => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </div>
+        </Main>
+        <Sidebar>
+          <Heading variant='side'>プロフィール</Heading>
+          <ProfileCard profile={profile} />
+          <Heading variant='side'>カテゴリー</Heading>
+          <CategoryList categories={categories} />
+          <Heading variant='side'>タグ</Heading>
+          <TagList tags={tags} />
+        </Sidebar>
       </Container>
     </div>
   )
