@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css'
+import { style, globalStyle } from '@vanilla-extract/css'
 import {
   colors,
   fontWeights,
@@ -22,13 +22,6 @@ const styles = {
   }),
   mainSection: style({
     display: 'flex',
-  }),
-  article: style({
-    padding: space[4],
-    width: '100%',
-    backgroundColor: colors.contentBg,
-    borderRadius: space[3],
-    color: colors.text,
   }),
 }
 

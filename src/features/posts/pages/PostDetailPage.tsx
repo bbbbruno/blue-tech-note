@@ -8,6 +8,7 @@ import styles from './PostDetailPage.css'
 import { Profile, ProfileCard } from '../../profile/'
 import { Category, CategoryList } from '../../category'
 import { Tag, TagList } from '../../tag'
+import Article from '../../../common/components/Article'
 
 const profile: Profile = {
   name: 'Bruno Sugahara',
@@ -104,7 +105,12 @@ export const PostDetailPage = ({ post }: Props) => {
         <PostDate date={post.publishedDate} />
       </section>
       <section className={styles.mainSection}>
-        <article className={styles.article}>This is post detail page</article>
+        <Article>
+          <h1>TItle</h1>
+          <hr></hr>
+          <p>ahahaha</p>
+          <a>link</a>
+        </Article>
         <Sidebar>
           <ProfileCard profile={profile} />
           <Heading variant='side'>カテゴリー</Heading>

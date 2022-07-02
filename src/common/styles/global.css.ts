@@ -1,5 +1,5 @@
 import { globalStyle, globalFontFace } from '@vanilla-extract/css'
-import { colors, fontSizes, fontWeights } from '../styles/variables.css'
+import { colors, fontWeights } from '../styles/variables.css'
 
 globalStyle('html, body', {
   fontFamily:
@@ -18,6 +18,10 @@ globalStyle('h1, h2, h3, h4, h5, h6', {
 globalStyle('a', {
   color: 'inherit',
   textDecoration: 'none',
+})
+
+globalStyle('a:hover', {
+  cursor: 'pointer',
 })
 
 globalStyle('ul', {
